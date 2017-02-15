@@ -1,0 +1,16 @@
+INDEX VERSION 1.129+/home/renato/Programming/dw3/dw3-tasks/hello-world/.metadata/.plugins/org.eclipse.jdt.core
+1876913401.index
+3408081233.index
+1017646824.index
+2450273785.index
+2753694936.index
+2001907059.index
+91943648.index
+3291391353.index
+3008692381.index
+2165603782.index
+111603099.index
+2476430300.index
+3305758753.index
+643451088.index
+1181658084.index
