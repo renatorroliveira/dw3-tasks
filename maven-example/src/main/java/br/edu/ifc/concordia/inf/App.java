@@ -1,7 +1,9 @@
 package br.edu.ifc.concordia.inf;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -17,6 +19,7 @@ import br.edu.ifc.concordia.inf.models.User;
 public class App {
 	public static void main(String[] args) {
 		System.out.println("Hello World!");
+		
 		Configuration config = new Configuration();
 		config.configure("hibernate.cfg.xml");
 		StandardServiceRegistry serviceRegistry =
@@ -32,7 +35,15 @@ public class App {
 		user.setName("Renato");
 		user.setEmail("renato@exemplo.com");
 		user.setPassword("12345");
-		session.persist(user);
+		Transaction transaction = session.getTransaction();
+		try {
+			transaction.begin();
+			session.persist(user);
+			transaction.commit();
+		} catch (HibernateException ex) {
+			ex.printStackTrace();
+			transaction.rollback();
+		}
 		
 		System.out.printf("ID Atribuido: %d\n", user.getId());
 		session.close();
