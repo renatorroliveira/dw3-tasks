@@ -11,8 +11,9 @@ public class IndexController extends AbstractController {
 	
 	@Path(value="/", priority=Path.HIGHEST)
 	@NoCache
-	public void index() {
+	public void home() {
 		
 	}
+	
 	
 }
